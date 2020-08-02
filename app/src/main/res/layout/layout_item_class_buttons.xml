@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/class_button_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/class_notes_button"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_8_dp"
+            android:layout_marginEnd="@dimen/dimen_8_dp"
+            android:layout_weight="1"
+            android:text="@string/class_notes"
+            app:backgroundTint="@android:color/white"
+            app:strokeColor="@color/colorPrimary"
+            app:strokeWidth="100dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/class_watch_again_button"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_8_dp"
+            android:layout_marginEnd="@dimen/dimen_8_dp"
+            android:layout_weight="1"
+            android:text="@string/class_watch_again"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/colorPrimary"
+            app:strokeColor="@color/colorPrimary" />
+
+    </LinearLayout>
+</layout>

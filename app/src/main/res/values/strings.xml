@@ -2,4 +2,13 @@
     <string name="app_name">Classiya</string>
     <string name="open">open</string>
     <string name="close">close</string>
+    <string name="class_sample_name">Science</string>
+    <string name="class_sample_title">Nutrition in Plants</string>
+    <string name="class_sample_description">Lorem Ipsum lorem ipsum</string>
+    <string name="class_taken_on_title">Taken on</string>
+    <string name="class_taken_on_sample">24th Mar, 4pm-6pm</string>
+    <string name="class_taken_by_title">Taken by</string>
+    <string name="class_taken_by_name_sample">Manisha Bharadwaj</string>
+    <string name="class_watch_again">Watch Again</string>
+    <string name="class_notes">Class Notes</string>
 </resources>
