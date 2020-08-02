@@ -31,6 +31,10 @@
                 android:layout_height="match_parent"
                 android:visibility="gone" />
 
+            <include
+                android:id="@+id/home_content_layout"
+                layout="@layout/layout_home" />
+
         </LinearLayout>
 
         <com.google.android.material.navigation.NavigationView
