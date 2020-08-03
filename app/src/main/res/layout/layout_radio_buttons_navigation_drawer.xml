@@ -57,6 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_8_dp"
             android:layout_weight="1"
+            android:checked="true"
             android:text="@string/option_your_past_classes" />
 
         <RadioButton
