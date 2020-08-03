@@ -13,12 +13,14 @@
         android:orientation="vertical">
 
         <include
+            android:id="@+id/class_card"
             layout="@layout/layout_item_class"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dimen_8_dp" />
 
         <include
+            android:id="@+id/class_buttons"
             layout="@layout/layout_item_class_buttons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

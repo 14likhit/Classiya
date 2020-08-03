@@ -19,6 +19,7 @@ import com.google.android.material.navigation.NavigationView
 import com.likhit.classiya.R
 import com.likhit.classiya.adapter.ClassListRecyclerAdapter
 import com.likhit.classiya.base.BaseActivity
+import com.likhit.classiya.data.Classe
 import com.likhit.classiya.databinding.ActivityHomeBinding
 import com.likhit.classiya.viewmodel.ClassViewModel
 import com.likhit.classiya.viewmodelfactory.ClassViewModelFactory
@@ -32,7 +33,9 @@ class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
     private lateinit var binding: ActivityHomeBinding
 
     private lateinit var adapter: ClassListRecyclerAdapter
-    private var listClass = mutableListOf<String>()
+    private var listClass = mutableListOf<Classe>()
+    private var listSubject = mutableListOf<String>()
+    private var subjectSelected: String? = null
 
     private lateinit var classViewModel: ClassViewModel
     private lateinit var classViewModelFactory: ClassViewModelFactory
@@ -67,10 +70,20 @@ class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
     }
 
     private fun setObservers() {
-        classViewModel.getClassList().observe(this, Observer { })
-        classViewModel.getSubjectList().observe(this, Observer { })
+        classViewModel.getClassList().observe(this, Observer {
+            if (it != null) {
+                listClass = it as MutableList<Classe>
+                updateFilterList()
+            }
+        })
+        classViewModel.getSubjectList().observe(this, Observer {
+            if (it != null) {
+                listSubject = it as MutableList<String>
+                setDropDownItems()
+                classViewModel.getClasses()
+            }
+        })
     }
-
 
     /**
      * Method to initiate view
@@ -79,21 +92,15 @@ class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
 
         adapter = ClassListRecyclerAdapter()
 
-        listClass = mutableListOf()
-        listClass.add("Science")
-        listClass.add("Math")
-        listClass.add("English")
-        listClass.add("Science")
-        listClass.add("Math")
-        listClass.add("English")
-
-        adapter.listClass = listClass
-
         binding.homeContentLayout.classListRecyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.homeContentLayout.classListRecyclerView.adapter = adapter
 
-        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listClass)
+        classViewModel.getSubjects()
+    }
+
+    private fun setDropDownItems() {
+        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listSubject)
         arrayAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice)
 
         binding.homeContentLayout.classSelectCard.cardSpinner.adapter = arrayAdapter
@@ -101,9 +108,6 @@ class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
         binding.homeContentLayout.classSelectCard.cardSpinner.onItemSelectedListener = this
         val menu = binding.homeNavigationView.menu
         setMenuListener(menu)
-
-        classViewModel.getClasses()
-        classViewModel.getSubjects()
     }
 
     /**
@@ -197,6 +201,21 @@ class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
      * OnItemSelected listener for drawer item.
      */
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        showMessage(listClass[p2] + " Selected")
+        showMessage(listSubject[p2] + " Selected")
+        subjectSelected = listSubject[p2]
+        updateFilterList()
+    }
+
+    private fun updateFilterList() {
+        val filteredList = mutableListOf<Classe>()
+        if (listClass.size > 0) {
+            for (i in 0 until listClass.size) {
+                if (listClass[i].className == subjectSelected) {
+                    filteredList.add(listClass[i])
+                }
+            }
+        }
+        adapter.listClass = filteredList
+        adapter.notifyDataSetChanged()
     }
 }
