@@ -12,12 +12,16 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationView
 import com.likhit.classiya.R
 import com.likhit.classiya.adapter.ClassListRecyclerAdapter
 import com.likhit.classiya.base.BaseActivity
 import com.likhit.classiya.databinding.ActivityHomeBinding
+import com.likhit.classiya.viewmodel.ClassViewModel
+import com.likhit.classiya.viewmodelfactory.ClassViewModelFactory
 
 
 /**
@@ -30,9 +34,16 @@ class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
     private lateinit var adapter: ClassListRecyclerAdapter
     private var listClass = mutableListOf<String>()
 
+    private lateinit var classViewModel: ClassViewModel
+    private lateinit var classViewModelFactory: ClassViewModelFactory
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
+
+        classViewModelFactory = ClassViewModelFactory()
+        classViewModel =
+            ViewModelProvider(this, classViewModelFactory).get(ClassViewModel::class.java)
 
         setupToolbar(getString(R.string.app_name), false)
 
@@ -49,8 +60,15 @@ class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        setObservers()
+
         initView()
 
+    }
+
+    private fun setObservers() {
+        classViewModel.getClassList().observe(this, Observer { })
+        classViewModel.getSubjectList().observe(this, Observer { })
     }
 
 
@@ -83,6 +101,9 @@ class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
         binding.homeContentLayout.classSelectCard.cardSpinner.onItemSelectedListener = this
         val menu = binding.homeNavigationView.menu
         setMenuListener(menu)
+
+        classViewModel.getClasses()
+        classViewModel.getSubjects()
     }
 
     /**
