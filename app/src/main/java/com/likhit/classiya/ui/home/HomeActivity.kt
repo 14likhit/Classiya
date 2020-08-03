@@ -1,6 +1,5 @@
 package com.likhit.classiya.ui.home
 
-import android.R.attr.startYear
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.Menu
@@ -105,6 +104,9 @@ class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener,
         binding.homeContentLayout.dateRangeSelectCard.containerCardView.setOnClickListener { datePickerDialog.show() }
     }
 
+    /**
+     * Method to set Drop down items.
+     */
     private fun setDropDownItems() {
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listSubject)
         arrayAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice)
@@ -212,6 +214,9 @@ class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener,
         updateFilterList()
     }
 
+    /**
+     * Method to updated filter list
+     */
     private fun updateFilterList() {
         val filteredList = mutableListOf<Classe>()
         if (listClass.size > 0) {
