@@ -7,6 +7,9 @@ import com.likhit.classiya.base.BaseActivity
 import com.likhit.classiya.databinding.ActivitySplashBinding
 import com.likhit.classiya.utils.launchHomeActivity
 
+/**
+ * Splash Activity for promotion purpose
+ */
 class SplashActivity : BaseActivity() {
 
     private lateinit var activitySplashBinding: ActivitySplashBinding

@@ -19,6 +19,10 @@ import com.likhit.classiya.adapter.ClassListRecyclerAdapter
 import com.likhit.classiya.base.BaseActivity
 import com.likhit.classiya.databinding.ActivityHomeBinding
 
+
+/**
+ * Main Home Activity to show drawer item and list fo classes.
+ */
 class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
 
     private lateinit var binding: ActivityHomeBinding
@@ -50,6 +54,9 @@ class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
     }
 
 
+    /**
+     * Method to initiate view
+     */
     private fun initView() {
 
         adapter = ClassListRecyclerAdapter()
@@ -78,6 +85,9 @@ class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
         setMenuListener(menu)
     }
 
+    /**
+     * Methods to set listeners for drawer items.
+     */
     private fun setMenuListener(menu: Menu) {
         val actionView = menu.findItem(R.id.menu_radios).actionView
         actionView.findViewById<AppCompatImageView>(R.id.cancel_button)
@@ -151,6 +161,9 @@ class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
         }
     }
 
+    /**
+     * Method to close drawers
+     */
     private fun closeDrawer() {
         binding.drawerLayout.closeDrawer(GravityCompat.START)
     }
@@ -159,6 +172,9 @@ class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
 
     }
 
+    /**
+     * OnItemSelected listener for drawer item.
+     */
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
         showMessage(listClass[p2] + " Selected")
     }

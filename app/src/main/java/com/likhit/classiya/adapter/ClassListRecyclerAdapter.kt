@@ -5,6 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.likhit.classiya.databinding.LayoutItemClassCardBinding
 
+/**
+ * Adapter to show list of classes.
+ */
 class ClassListRecyclerAdapter() :
     RecyclerView.Adapter<ClassListRecyclerAdapter.ClassListRecyclerViewHolder>() {
 
