@@ -2,6 +2,9 @@ package com.likhit.classiya.ui.home
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
@@ -11,7 +14,7 @@ import com.likhit.classiya.adapter.ClassListRecyclerAdapter
 import com.likhit.classiya.base.BaseActivity
 import com.likhit.classiya.databinding.ActivityHomeBinding
 
-class HomeActivity : BaseActivity() {
+class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
 
     private lateinit var binding: ActivityHomeBinding
 
@@ -54,9 +57,18 @@ class HomeActivity : BaseActivity() {
         listClass.add("Math")
         listClass.add("English")
 
+        adapter.listClass = listClass
+
         binding.homeContentLayout.classListRecyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.homeContentLayout.classListRecyclerView.adapter = adapter
+
+        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listClass)
+        arrayAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice)
+
+        binding.homeContentLayout.classSelectCard.cardSpinner.adapter = arrayAdapter
+
+        binding.homeContentLayout.classSelectCard.cardSpinner.onItemSelectedListener = this
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -75,5 +87,13 @@ class HomeActivity : BaseActivity() {
         } else {
             super.onBackPressed()
         }
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+
+    }
+
+    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+        showMessage("Item Selected")
     }
 }

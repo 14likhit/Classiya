@@ -30,7 +30,7 @@
 
             <include
                 android:id="@+id/class_select_card"
-                layout="@layout/layout_item_card_horizontal_text_image"
+                layout="@layout/layout_item_card_spinner"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dimen_8_dp"
