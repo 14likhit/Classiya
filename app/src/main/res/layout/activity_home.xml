@@ -39,7 +39,7 @@
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/home_navigation_view"
-            android:layout_width="210dp"
+            android:layout_width="225dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"
             app:menu="@menu/drawer_view" />
