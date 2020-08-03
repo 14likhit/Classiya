@@ -11,4 +11,13 @@
     <string name="class_taken_by_name_sample">Manisha Bharadwaj</string>
     <string name="class_watch_again">Watch Again</string>
     <string name="class_notes">Class Notes</string>
+    <string name="option_schedule_a_trial_class">Schedule a Trial Class</string>
+    <string name="option_upcoming_live_classes">Upcoming Live Classes</string>
+    <string name="option_your_past_classes">Your Past Classes</string>
+    <string name="option_practice_tests">Practice Tests</string>
+    <string name="option_explore_courses">Explore Courses</string>
+    <string name="option_pricing">Pricing</string>
+    <string name="option_blog">Blog</string>
+    <string name="option_faqs">FAQs</string>
+    <string name="option_profile">Profile</string>
 </resources>

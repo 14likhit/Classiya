@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <RadioGroup
+        android:id="@+id/container_radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16_dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_cancel" />
+
+        <RadioButton
+            android:id="@+id/option_zero_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16_dp"
+            android:layout_weight="1"
+            android:text="@string/option_profile" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/dimen_8_dp"
+            android:layout_marginBottom="@dimen/dimen_8_dp"
+            android:background="@android:color/darker_gray" />
+
+
+        <RadioButton
+            android:id="@+id/option_one_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8_dp"
+            android:layout_weight="1"
+            android:text="@string/option_schedule_a_trial_class" />
+
+        <RadioButton
+            android:id="@+id/option_two_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8_dp"
+            android:layout_weight="1"
+            android:text="@string/option_upcoming_live_classes" />
+
+        <RadioButton
+            android:id="@+id/option_three_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8_dp"
+            android:layout_weight="1"
+            android:text="@string/option_your_past_classes" />
+
+        <RadioButton
+            android:id="@+id/option_four_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8_dp"
+            android:layout_weight="1"
+            android:text="@string/option_practice_tests" />
+
+        <RadioButton
+            android:id="@+id/option_five_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8_dp"
+            android:layout_weight="1"
+            android:text="@string/option_explore_courses" />
+
+        <RadioButton
+            android:id="@+id/option_six_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8_dp"
+            android:layout_weight="1"
+            android:text="@string/option_pricing" />
+
+        <RadioButton
+            android:id="@+id/option_seven_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8_dp"
+            android:layout_weight="1"
+            android:text="@string/option_blog" />
+
+        <RadioButton
+            android:id="@+id/option_eight_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8_dp"
+            android:layout_weight="1"
+            android:text="@string/option_faqs" />
+
+    </RadioGroup>
+</layout>
