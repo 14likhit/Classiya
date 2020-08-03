@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/class_notes_button"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
@@ -22,11 +22,11 @@
             android:layout_weight="1"
             android:text="@string/class_notes"
             app:backgroundTint="@android:color/white"
-            app:cornerRadius="@dimen/dimen_16_dp"
+            app:cornerRadius="@dimen/dimen_8_dp"
             app:strokeColor="@color/colorPrimary"
-            app:strokeWidth="@dimen/dimen_8_dp" />
+            app:strokeWidth="@dimen/dimen_2_dp" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/class_watch_again_button"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
@@ -37,9 +37,9 @@
             android:text="@string/class_watch_again"
             android:textColor="@android:color/white"
             app:backgroundTint="@color/colorPrimary"
-            app:cornerRadius="@dimen/dimen_16_dp"
+            app:cornerRadius="@dimen/dimen_8_dp"
             app:strokeColor="@color/colorPrimary"
-            app:strokeWidth="@dimen/dimen_8_dp" />
+            app:strokeWidth="@dimen/dimen_2_dp" />
 
     </LinearLayout>
 </layout>
