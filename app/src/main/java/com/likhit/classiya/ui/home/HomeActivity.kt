@@ -1,12 +1,14 @@
 package com.likhit.classiya.ui.home
 
+import android.R.attr.startYear
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Button
+import android.widget.DatePicker
 import android.widget.RadioButton
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.AppCompatImageView
@@ -15,7 +17,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.navigation.NavigationView
 import com.likhit.classiya.R
 import com.likhit.classiya.adapter.ClassListRecyclerAdapter
 import com.likhit.classiya.base.BaseActivity
@@ -28,7 +29,8 @@ import com.likhit.classiya.viewmodelfactory.ClassViewModelFactory
 /**
  * Main Home Activity to show drawer item and list fo classes.
  */
-class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
+class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener,
+    DatePickerDialog.OnDateSetListener {
 
     private lateinit var binding: ActivityHomeBinding
 
@@ -97,6 +99,10 @@ class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
         binding.homeContentLayout.classListRecyclerView.adapter = adapter
 
         classViewModel.getSubjects()
+
+        val datePickerDialog = DatePickerDialog(this, this, 2020, 2, 1)
+
+        binding.homeContentLayout.dateRangeSelectCard.containerCardView.setOnClickListener { datePickerDialog.show() }
     }
 
     private fun setDropDownItems() {
@@ -217,5 +223,9 @@ class HomeActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
         }
         adapter.listClass = filteredList
         adapter.notifyDataSetChanged()
+    }
+
+    override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
+        showMessage("DateSelected: " + p3 + "/" + p2)
     }
 }
