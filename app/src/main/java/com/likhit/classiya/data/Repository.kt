@@ -1,5 +1,9 @@
 package com.likhit.classiya.data
 
+/**
+ * file for data repository.
+ */
+
 fun getClassesList(): MutableList<Classe> {
     val classeList = mutableListOf<Classe>()
     classeList.add(

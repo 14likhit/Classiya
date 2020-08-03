@@ -7,6 +7,9 @@ import com.likhit.classiya.data.Classe
 import com.likhit.classiya.data.getClassesList
 import com.likhit.classiya.data.getSubjectsList
 
+/**
+ * ViewModel for getting data for home Activity.
+ */
 class ClassViewModel : ViewModel() {
 
     private var classListMutableLiveData: MutableLiveData<List<Classe>> = MutableLiveData()
